@@ -3,6 +3,7 @@ import {View,Text,StyleSheet, Button, Alert} from 'react-native';
 import Card from '../components/Card';
 
 import NumberContainer from '../components/NumberContainer';
+import TitleText from '../components/TitleText';
 
 const generateRandomBetween=(min,max,exclude)=>{
     min=Math.ceil(min);
@@ -21,21 +22,25 @@ const generateRandomBetween=(min,max,exclude)=>{
 
 const GameScreen=props=>{
     const [currentGuess,setCurrentGuess]= useState(generateRandomBetween(1,100,props.userChoice));
-
+    const [rounds,setRounds]=useState(0);
     const currentLow=useRef(1);
     const currentHigh=useRef(100);
 
+    const {userChoice,onGameOver}=props;
+
     useEffect(()=>{
-        if(currentGuess===props.userChoice)
-            null;
-    });
+        if(currentGuess===userChoice)
+        {
+            onGameOver(rounds);
+        }
+    },[currentGuess,currentGuess,userChoice]);
 
     const nextGuessHandler=direction=>{
 
         if((direction==='lower' && currentGuess<props.userChoice) 
             || (direction==='greater'&& currentGuess>props.userChoice))
         {
-            Alert.alert('༼ つ ◕_◕ ༽つ Don\'t Lie','You know that this is wrong...\nIt can\'t be greater & lower simultaneously!\nಠ_ಠ',[{text:'Sorry',style:'cancel'}]);  
+            Alert.alert('༼ つ ◕_◕ ༽つ Don\'t Lie','\nಠ_ಠ  You know that this is wrong...',[{text:'Sorry',style:'cancel'}]);  
             return;
         }    
         if(direction=='lower')
@@ -44,15 +49,16 @@ const GameScreen=props=>{
         }
         else if(direction==='greater')
         {
-            currentLow.current=currentGuess;
+            currentLow.current=currentGuess+1;
         }
         const nextNumer=generateRandomBetween(currentLow.current,currentHigh.current,currentGuess);
         setCurrentGuess(nextNumer);
+        setRounds((currRounds)=>currRounds+1);
     };
 
     return(
         <View style={styles.screen}>
-            <Text>Opponent's Guess</Text>
+            <TitleText>Opponent's Guess</TitleText>
             <NumberContainer>{currentGuess}</NumberContainer>
             <Card styles={styles.buttonContainer}>
                 <View style={{width:100}}><Button title="LOWER" onPress={nextGuessHandler.bind(null,'lower')}/></View>

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Alert, Button, Keyboard, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
+import BodyText from '../components/BodyText';
 import Card from '../components/Card';
 import Input from '../components/Input';
 import NumberContainer from '../components/NumberContainer';
+import TitleText from '../components/TitleText';
 import colors from '../constants/Colors';
 const StartGameScreen=props=>{
 
-    const [enteredValue,setEnteredValue]=useState('5');
+    const [enteredValue,setEnteredValue]=useState('');
     const [confirmed,setConfirmed]=useState(false);
     const [selectedNumber,setSelectedNumber]=useState();
     const numberInputHandler=(inputText)=>{
@@ -25,7 +27,7 @@ const StartGameScreen=props=>{
         const chosenNumber=parseInt(enteredValue);
         if (isNaN(chosenNumber) || chosenNumber<=0 || chosenNumber>99) 
         {
-            Alert.alert('Invalid Input!','Number has to be between [1-99].',[{text:'Okay',style:'destructive',onPress:resetInputHandler}])
+            Alert.alert('ಠ_ಠ Invalid Input!','Number has to be between [1-99].',[{text:'Okay',style:'destructive',onPress:resetInputHandler}])
             return;
         }
         setConfirmed(true);
@@ -39,7 +41,7 @@ const StartGameScreen=props=>{
     {
         confirmedOutput=(
             <Card styles={styles.summaryContainer}>
-                <Text>You Selected</Text>
+                <BodyText>You Selected</BodyText>
                 <NumberContainer>
                     {selectedNumber}
                 </NumberContainer>
@@ -51,9 +53,9 @@ const StartGameScreen=props=>{
     return(
         <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss();}}>
             <View style={styles.screen}>
-                <Text style={styles.title}>Start a New Game!</Text>
+                <TitleText>Start a New Game!</TitleText>
                 <Card styles={styles.inputContainer}>
-                    <Text>Select a Number</Text>
+                    <BodyText>Select a Number</BodyText>
                     <Input styles={styles.input} 
                         blurOnSubmit autoCapitalize='none' autoCorrect={false} 
                         keyboardType='number-pad' maxLength={2}
@@ -87,10 +89,6 @@ const styles=StyleSheet.create({
         flex:1,
         alignItems:'center'
     },
-    title:{
-        fontSize:20,
-        marginVertical:10,
-    },
     inputContainer:{
         width:300,
         maxWidth:'80%',
@@ -103,7 +101,7 @@ const styles=StyleSheet.create({
         paddingHorizontal:15
     },
     button:{
-        width:100
+        width:100,
     },
     input:{
         width:50,
