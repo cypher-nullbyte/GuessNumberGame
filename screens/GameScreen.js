@@ -48,7 +48,7 @@ const GameScreen=props=>{
         }
         else if(direction==='greater')
         {
-            currentLow.current=currentGuess;
+            currentLow.current=currentGuess+1;
         }
         const nextNumer=generateRandomBetween(currentLow.current,currentHigh.current,currentGuess);
         setCurrentGuess(nextNumer);

@@ -6,7 +6,7 @@ import NumberContainer from '../components/NumberContainer';
 import colors from '../constants/Colors';
 const StartGameScreen=props=>{
 
-    const [enteredValue,setEnteredValue]=useState('5');
+    const [enteredValue,setEnteredValue]=useState('10');
     const [confirmed,setConfirmed]=useState(false);
     const [selectedNumber,setSelectedNumber]=useState();
     const numberInputHandler=(inputText)=>{
