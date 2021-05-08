@@ -3,6 +3,7 @@ import { Alert, Button, Keyboard, StyleSheet, Text, TouchableWithoutFeedback, Vi
 import BodyText from '../components/BodyText';
 import Card from '../components/Card';
 import Input from '../components/Input';
+import MainButton from '../components/MainButton';
 import NumberContainer from '../components/NumberContainer';
 import TitleText from '../components/TitleText';
 import colors from '../constants/Colors';
@@ -45,7 +46,7 @@ const StartGameScreen=props=>{
                 <NumberContainer>
                     {selectedNumber}
                 </NumberContainer>
-                <Button title="START GAME" onPress={props.onStartGame.bind(null,selectedNumber)}/>
+                <MainButton  onPress={props.onStartGame.bind(null,selectedNumber)}>START GAME</MainButton>
             </Card>
         );
     }
