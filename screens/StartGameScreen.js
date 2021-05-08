@@ -8,7 +8,7 @@ import TitleText from '../components/TitleText';
 import colors from '../constants/Colors';
 const StartGameScreen=props=>{
 
-    const [enteredValue,setEnteredValue]=useState('10');
+    const [enteredValue,setEnteredValue]=useState('');
     const [confirmed,setConfirmed]=useState(false);
     const [selectedNumber,setSelectedNumber]=useState();
     const numberInputHandler=(inputText)=>{
@@ -27,7 +27,7 @@ const StartGameScreen=props=>{
         const chosenNumber=parseInt(enteredValue);
         if (isNaN(chosenNumber) || chosenNumber<=0 || chosenNumber>99) 
         {
-            Alert.alert('Invalid Input!','Number has to be between [1-99].',[{text:'Okay',style:'destructive',onPress:resetInputHandler}])
+            Alert.alert('ಠ_ಠ Invalid Input!','Number has to be between [1-99].',[{text:'Okay',style:'destructive',onPress:resetInputHandler}])
             return;
         }
         setConfirmed(true);
@@ -101,7 +101,7 @@ const styles=StyleSheet.create({
         paddingHorizontal:15
     },
     button:{
-        width:100
+        width:100,
     },
     input:{
         width:50,

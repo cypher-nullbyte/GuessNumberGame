@@ -3,7 +3,7 @@
     "name": "GuessNumber",
     "slug": "GuessNumber",
     "version": "1.0.0",
-    "orientation": "ANY",
+    "orientation": "protrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",

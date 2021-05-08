@@ -40,7 +40,7 @@ const GameScreen=props=>{
         if((direction==='lower' && currentGuess<props.userChoice) 
             || (direction==='greater'&& currentGuess>props.userChoice))
         {
-            Alert.alert('༼ つ ◕_◕ ༽つ Don\'t Lie','You know that this is wrong...\nIt can\'t be greater & lower simultaneously!\nಠ_ಠ',[{text:'Sorry',style:'cancel'}]);  
+            Alert.alert('༼ つ ◕_◕ ༽つ Don\'t Lie','\nಠ_ಠ  You know that this is wrong...',[{text:'Sorry',style:'cancel'}]);  
             return;
         }    
         if(direction=='lower')
