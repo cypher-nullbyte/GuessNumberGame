@@ -27,6 +27,7 @@ const GameOverScreen=props=>{
             flex:1,
             justifyContent:'center',
             alignItems:'center',
+            width:availableDeviceWidth,
         },
         resultContainer:{
             marginHorizontal:30,

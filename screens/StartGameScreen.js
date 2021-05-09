@@ -128,10 +128,9 @@ const styles=StyleSheet.create({
         textAlign:'center',
     },
     summaryContainer:{
-        marginTop:20,
+        margin:20,
         alignItems:'center',
-        borderBottomWidth:1,
-        borderColor:'transparent',
+        
     },
 });
 
