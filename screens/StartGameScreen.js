@@ -112,6 +112,7 @@ const styles=StyleSheet.create({
         minWidth:280,
         maxWidth:'95%',
         alignItems:'center',
+        margin:10
     },
     buttonContainer:{
         flexDirection:'row',
@@ -128,7 +129,9 @@ const styles=StyleSheet.create({
     },
     summaryContainer:{
         marginTop:20,
-        alignItems:'center'
+        alignItems:'center',
+        borderBottomWidth:1,
+        borderColor:'transparent',
     },
 });
 

@@ -47,7 +47,7 @@ const GameScreen=props=>{
         };
         Dimensions.addEventListener('change',updateLayout);
         return ()=>{
-            Dimensions.removeEventListener('change');
+            Dimensions.removeEventListener('change',updateLayout);
         }
     },[]);
 
@@ -123,7 +123,7 @@ const GameScreen=props=>{
         <View style={styles.screen}>
             <TitleText>Opponent's Guess</TitleText>
             <NumberContainer>{currentGuess}</NumberContainer>
-            <Card styles={Dimensions.get('window').height>600 ? styles.buttonContainer : styles.buttonContainer}>
+            <Card styles={availableDeviceHeight>600 ? styles.buttonContainer : styles.buttonContainer}>
                 <MainButton onPress={nextGuessHandler.bind(null,'lower')}>
                     <Ionicons name="md-remove" size={24} color='white' />
                 </MainButton>
@@ -139,7 +139,6 @@ const GameScreen=props=>{
         </View>
     );
 };
-
 
 
 const styles=StyleSheet.create({
@@ -176,6 +175,5 @@ const styles=StyleSheet.create({
         width:'100%',
     }
 });
-
 
 export default GameScreen;
