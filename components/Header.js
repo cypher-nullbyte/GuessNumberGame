@@ -13,7 +13,7 @@ const Header=props=>{
         return ()=>{
             Dimensions.removeEventListener('change',updateLayout);
         }
-    });
+    },[]);
 
     return(
         <View style={{...styles.header,height:availableDeviceHeight>500 ? 100 :70}}>

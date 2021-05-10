@@ -21,7 +21,7 @@ const GameOverScreen=props=>{
         return ()=>{
             Dimensions.removeEventListener('change',updateLayout);
         }
-    });
+    },[]);
     let styles={
         screen:{
             flex:1,

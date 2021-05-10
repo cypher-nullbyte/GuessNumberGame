@@ -47,9 +47,9 @@ const GameScreen=props=>{
         };
         Dimensions.addEventListener('change',updateLayout);
         return ()=>{
-            Dimensions.removeEventListener('change');
+            Dimensions.removeEventListener('change',updateLayout);
         }
-    });
+    },[]);
 
     const {userChoice,onGameOver}=props;
     useEffect(()=>{
